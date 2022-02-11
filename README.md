@@ -1,6 +1,6 @@
-# Azure Video Analyzer for Media Python samples
+# Azure Video Analyzer for Media Python samples
 
-This repository contains some examples of Python scripts accessing Azure Video Analyzer for Media (née Video Indexer).
+This repository contains some examples of Python scripts accessing [Azure Video Analyzer for Media](https://docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-for-media-docs/) (née Video Indexer, a.k.a. "AVAM").
 
 The examples use an SDK generated using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen). You should first install the `swagger-codegen` tool, and then follow the next steps to generate the SDK.
 
