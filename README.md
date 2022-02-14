@@ -24,10 +24,12 @@ swagger-codegen generate -i ../Operations.yaml -l python -DpackageName=azure.vid
 
 I decided to name the package `azure.videoindexer` rather than `azure.videoanalyzerformedia` for brevity purposes :-)
 
-Once the SDK is generated, you can install it in "edit" mode with `pip`, so you can use it in your scripts:
+## Install dependencies
+
+Once the SDK is generated, it will be installed using Poetry, along with the other dependencies.
 
 ```sh
-pip install -e sdk
+poetry install
 ```
 
 ## Use the examples
@@ -61,5 +63,5 @@ export AVAM_LOCATION=eastus
 You can then run an example:
 
 ```sh
-python list_videos.py
+poetry run python list_videos.py
 ```
