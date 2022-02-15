@@ -25,7 +25,7 @@ jobs:
     - name: Generate SDK from Swagger
       run: |
         curl -H 'Accept: application/vnd.oai.openapi' "https://viprod-apim.management.azure-api.net/subscriptions/000/resourceGroups/000/providers/Microsoft.ApiManagement/service/viprod-apim/apis/Operations?api-version=2019-12-01" > Operations.yaml
-        docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli generate -i /local/Operations.yaml -o /local/sdk -l python -DpackageName=azure.videoindexer
+        docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3 generate -i /local/Operations.yaml -o /local/sdk -l python -DpackageName=azure.videoindexer
 
     - name: Install Poetry
       run: curl -sSL https://install.python-poetry.org | python3 -
