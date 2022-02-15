@@ -3,7 +3,7 @@ import os
 
 import azure.videoindexer
 
-from avam_token import get_avam_access_token
+from utils import get_avam_access_token
 
 avam_subscription = os.environ['AVAM_SUBSCRIPTION']
 avam_resource_group = os.environ['AVAM_RESOURCE_GROUP']

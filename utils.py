@@ -5,6 +5,7 @@ from azure.identity import DefaultAzureCredential
 
 
 def get_avam_access_token(subscription, resource_group, account_name):
+    """Retrieve an AVAM access token using the ARM API."""
     azure_cred = DefaultAzureCredential()
     arm_token = azure_cred.get_token('https://management.azure.com/.default')
 
@@ -25,3 +26,12 @@ def get_avam_access_token(subscription, resource_group, account_name):
     )
 
     return access_token_req.json()['accessToken']
+
+
+def download_file(url, local_filename, chunk_size=1024*1024):
+    """Download a file using requests. Default chunk size 1MB."""
+    with requests.get(url, stream=True) as r:
+        r.raise_for_status()
+        with open(local_filename, 'wb') as f:
+            for chunk in r.iter_content(chunk_size):
+                f.write(chunk)

@@ -3,30 +3,14 @@ import os
 import zipfile
 
 import azure.videoindexer
-import requests
 
-from avam_token import get_avam_access_token
+from utils import get_avam_access_token, download_file
 
 avam_subscription = os.environ['AVAM_SUBSCRIPTION']
 avam_resource_group = os.environ['AVAM_RESOURCE_GROUP']
 avam_account_name = os.environ['AVAM_ACCOUNT_NAME']
 avam_account_id = os.environ['AVAM_ACCOUNT_ID']
 avam_location = os.environ['AVAM_LOCATION']
-
-
-def download_file(url, local_filename):
-    """Download a file using requests."""
-    # NOTE the stream=True parameter below
-    with requests.get(url, stream=True) as r:
-        r.raise_for_status()
-        with open(local_filename, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=8192):
-                # If you have chunk encoded response uncomment if
-                # and set chunk_size parameter to None.
-                # if chunk:
-                f.write(chunk)
-    return local_filename
-
 
 # Retrieve an AVAM access token
 
