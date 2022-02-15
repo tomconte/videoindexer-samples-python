@@ -1,7 +1,6 @@
 import json
 import os
 import zipfile
-from urllib.parse import urlparse
 
 import azure.videoindexer
 import requests
