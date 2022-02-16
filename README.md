@@ -1,8 +1,10 @@
 # Azure Video Analyzer for Media Python samples
 
-This repository contains some examples of Python scripts accessing [Azure Video Analyzer for Media](https://docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-for-media-docs/) (née Video Indexer, a.k.a. "AVAM").
+This repository contains some examples showing how to access from Python the REST API of [Azure Video Analyzer for Media](https://docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-for-media-docs/) (née Video Indexer, a.k.a. "AVAM").
 
 The examples use an SDK generated using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen). You should first install the `swagger-codegen` tool, and then follow the next steps to generate the SDK.
+
+The dependencies are managed using [Poetry](https://python-poetry.org/), you should also install this tool on your machine.
 
 ## Generate the SDK
 
@@ -65,3 +67,9 @@ You can then run an example:
 ```sh
 poetry run python list_videos.py
 ```
+
+## List of samples
+
+- `list_videos.py`: list the names of all videos (limited to 1000 entries).
+- `download_all_thumbnails.py`: download all keyframe thumbnails for all videos (limited to 100 entries).
+- `download_all_insights.py`: download insights JSON document for all videos (limited to 100 entries).
