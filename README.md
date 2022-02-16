@@ -68,7 +68,7 @@ You can then run an example:
 poetry run python list_videos.py
 ```
 
-## List of samples
+## List of examples
 
 - `list_videos.py`: list the names of all videos (limited to 1000 entries).
 - `download_all_thumbnails.py`: download all keyframe thumbnails for all videos (limited to 100 entries).
