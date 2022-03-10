@@ -12,7 +12,7 @@ toml = "*"
 
 [[package]]
 name = "azure-core"
-version = "1.22.1"
+version = "1.23.0"
 description = "Microsoft Azure Core Library for Python"
 category = "main"
 optional = false
@@ -21,14 +21,15 @@ python-versions = ">=3.6"
 [package.dependencies]
 requests = ">=2.18.4"
 six = ">=1.11.0"
+typing-extensions = ">=4.0.1"
 
 [[package]]
 name = "azure-identity"
-version = "1.7.1"
+version = "1.8.0"
 description = "Microsoft Azure Identity Library for Python"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 
 [package.dependencies]
 azure-core = ">=1.11.0,<2.0.0"
@@ -164,7 +165,7 @@ portalocker = [
 
 [[package]]
 name = "portalocker"
-version = "2.3.2"
+version = "2.4.0"
 description = "Wraps the portalocker recipe for easy usage"
 category = "main"
 optional = false
@@ -176,7 +177,7 @@ pywin32 = {version = ">=226", markers = "platform_system == \"Windows\""}
 [package.extras]
 docs = ["sphinx (>=1.7.1)"]
 redis = ["redis"]
-tests = ["pytest (>=5.4.1)", "pytest-cov (>=2.8.1)", "sphinx (>=3.0.3)", "pytest-flake8 (>=1.0.5)", "pytest-mypy (>=0.8.0)", "redis"]
+tests = ["pytest (>=5.4.1)", "pytest-cov (>=2.8.1)", "sphinx (>=3.0.3)", "pytest-mypy (>=0.8.0)", "redis"]
 
 [[package]]
 name = "pycodestyle"
@@ -273,6 +274,14 @@ optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
+name = "typing-extensions"
+version = "4.1.1"
+description = "Backported and Experimental Type Hints for Python 3.6+"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "urllib3"
 version = "1.26.8"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -287,8 +296,8 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.9"
-content-hash = "c97732ac6b78e30b9f176aa234344f21d304b06661cb5a74e64700d3574f434b"
+python-versions = "^3.8"
+content-hash = "fea27b3ca9bb663ca02063041a66a4925a386654eba54aa222fd4109c3a7929c"
 
 [metadata.files]
 autopep8 = [
@@ -296,12 +305,12 @@ autopep8 = [
     {file = "autopep8-1.6.0.tar.gz", hash = "sha256:44f0932855039d2c15c4510d6df665e4730f2b8582704fa48f9c55bd3e17d979"},
 ]
 azure-core = [
-    {file = "azure-core-1.22.1.zip", hash = "sha256:4b6e405268a33b873107796495cec3f2f1b1ffe935624ce0fbddff36d38d3a4d"},
-    {file = "azure_core-1.22.1-py3-none-any.whl", hash = "sha256:407381c74e2ccc16adb1f29c4a1b381ebd39e8661bbf60422926d8252d5b757d"},
+    {file = "azure-core-1.23.0.zip", hash = "sha256:a56a6f720d0948d3f3e4a25a5fe46df2f1b7f865c358d74e2ce47dbb49262608"},
+    {file = "azure_core-1.23.0-py3-none-any.whl", hash = "sha256:23c1389a115c328878c4eface3ca3899c2468313ea6f883f2347d6924cd887b2"},
 ]
 azure-identity = [
-    {file = "azure-identity-1.7.1.zip", hash = "sha256:7f22cd0c7a9b92ed297dd67ae79d9bb9a866e404061c02cec709ad10c4c88e19"},
-    {file = "azure_identity-1.7.1-py2.py3-none-any.whl", hash = "sha256:454e16ed1152b4fd3fb463f4b4e2f7a3fc3a862b0ca28010bff6d5c6b2b0c50f"},
+    {file = "azure-identity-1.8.0.zip", hash = "sha256:020ff0e47157852e4aac8a3adb06841827147f27a94cbe74a904425d8e62d93c"},
+    {file = "azure_identity-1.8.0-py3-none-any.whl", hash = "sha256:8d87aff09b8dabe3c99bb934798dcdeb2f2d49614ecc4f0425cc888faafd64ae"},
 ]
 "azure.videoindexer" = []
 certifi = [
@@ -407,8 +416,8 @@ msal-extensions = [
     {file = "msal_extensions-0.3.1-py2.py3-none-any.whl", hash = "sha256:89df9c0237e1adf16938fa58575db59c2bb9de04a83ffb0452c8dfc79031f717"},
 ]
 portalocker = [
-    {file = "portalocker-2.3.2-py2.py3-none-any.whl", hash = "sha256:d8c9f7c542e768dbef006a3e49875046ca170d2d41ca712080719110bd066cc4"},
-    {file = "portalocker-2.3.2.tar.gz", hash = "sha256:75cfe02f702737f1726d83e04eedfa0bda2cc5b974b1ceafb8d6b42377efbd5f"},
+    {file = "portalocker-2.4.0-py2.py3-none-any.whl", hash = "sha256:b092f48e1e30a234ab3dd1cfd44f2f235e8a41f4e310e463fc8d6798d1c3c235"},
+    {file = "portalocker-2.4.0.tar.gz", hash = "sha256:a648ad761b8ea27370cb5915350122cd807b820d2193ed5c9cc28f163df637f4"},
 ]
 pycodestyle = [
     {file = "pycodestyle-2.8.0-py2.py3-none-any.whl", hash = "sha256:720f8b39dde8b293825e7ff02c475f3077124006db4f440dcbc9a20b76548a20"},
@@ -455,6 +464,10 @@ six = [
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
     {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
+]
+typing-extensions = [
+    {file = "typing_extensions-4.1.1-py3-none-any.whl", hash = "sha256:21c85e0fe4b9a155d0799430b0ad741cdce7e359660ccbd8b530613e8df88ce2"},
+    {file = "typing_extensions-4.1.1.tar.gz", hash = "sha256:1a9462dcc3347a79b1f1c0271fbe79e844580bb598bafa1ed208b94da3cdcd42"},
 ]
 urllib3 = [
     {file = "urllib3-1.26.8-py2.py3-none-any.whl", hash = "sha256:000ca7f471a233c2251c6c7023ee85305721bfdf18621ebff4fd17a8653427ed"},
