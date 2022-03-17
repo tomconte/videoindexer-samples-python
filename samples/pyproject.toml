@@ -9,7 +9,7 @@ license = "MIT"
 python = "^3.8"
 requests = "^2.27.1"
 azure-identity = "^1.7.1"
-"azure.videoindexer" = {url = "https://github.com/tomconte/avam-samples-python/releases/download/untagged-a15d5c21c44871a7f397/azure.videoindexer-1.0.0.tar.gz"}
+"azure.videoindexer" = {url = "https://github.com/tomconte/avam-samples-python/releases/download/sdk-1.0.0-alpha/azure.videoindexer-1.0.0.tar.gz"}
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
