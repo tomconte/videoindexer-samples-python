@@ -4,13 +4,13 @@ This repository contains some examples showing how to access from Python the RES
 
 The examples use an SDK generated using a [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) Docker image. You should have Docker installed and runnning on your machine, then follow the next steps to generate the SDK.
 
-Alternatively, you can download the pre-built SDK from the Releases in the repository.
+Alternatively, you can download the pre-built SDK from the Releases in the repository, or just point to it in your dependencies.
 
 The dependencies are managed using [Poetry](https://python-poetry.org/), you should also install this tool on your machine.
 
 ## Generate the SDK
 
-You can generate and build the SDK using the script provided:
+If you want to generate and build the SDK locally, use the script provided:
 
 ```sh
 cd sdk
@@ -20,15 +20,13 @@ poetry run bash build_sdk.sh
 
 I decided to name the package `azure.videoindexer` rather than `azure.videoanalyzerformedia` for brevity purposes :-)
 
-## Install dependencies
+## Use the examples
 
-Once the SDK is generated, it will be installed using Poetry, along with the other dependencies.
+To use the samples, first install the dependencies using Poetry. You don't need to build the SDK, the samples will use the released SDK from the repository.
 
 ```sh
 poetry install
 ```
-
-## Use the examples
 
 The examples rely on a small helper library to retrieve an AVAM access token. This libray uses the `DefaultAzureCredential` class in the [azure-identity](https://docs.microsoft.com/en-us/python/api/overview/azure/identity-readme?view=azure-python) library to authenticate with Azure Active Directory. This class can use a number of different schemes to determine the identity to use for authentication: environment variables, user/system assigned managed identities, etc.
 
