@@ -34,7 +34,7 @@ jobs:
         poetry run bash build_sdk.sh
         
     - name: Analysing the code with flake8
-    working-directory: ./samples
+      working-directory: ./samples
       run: |
         poetry install
         poetry run flake8 $(git ls-files '*.py')
