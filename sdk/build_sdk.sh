@@ -16,7 +16,7 @@ echo "# Generate SDK..."
 
 mkdir generated
 
-docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3 generate -i /local/Operations.yaml -o /local/generated -l python -DpackageName=azure.videoindexer
+docker run --user $(id -u):$(id -g) --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3 generate -i /local/Operations.yaml -o /local/generated -l python -DpackageName=azure.videoindexer
 
 echo "# Build SDK..."
 
