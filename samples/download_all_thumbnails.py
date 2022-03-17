@@ -23,14 +23,11 @@ avam_access_token = get_avam_access_token(
 
 api_instance = azure.videoindexer.VideosApi()
 
-list_videos_response = api_instance.list_videos(
+list_videos = api_instance.list_videos(
     location=avam_location,
     account_id=avam_account_id,
     access_token=avam_access_token,
-    page_size=100,
-    _preload_content=False)
-
-list_videos = json.loads(list_videos_response.read())
+    page_size=100)
 
 # For each video, download the corresponding keyframe thumbnails
 # Each thumbnails zip file is named `{video_name}__{video_id}.zip`
@@ -41,16 +38,14 @@ for video in list_videos['results']:
     video_id = video['id']
 
     print(f"Processing {video_name} ...")
-    artifacts_response = api_instance.get_video_artifact_download_url(
+    artifact_url = api_instance.get_video_artifact_download_url(
         location=avam_location,
         account_id=avam_account_id,
         access_token=avam_access_token,
         video_id=video_id,
-        type='KeyframesThumbnails',
-        _preload_content=False)
+        type='KeyframesThumbnails')
 
     # Get the artifact URL from AVAM
-    artifact_url = json.loads(artifacts_response.read())
     print(f"Downloading {artifact_url} ...")
 
     # Extract the file name from the URL

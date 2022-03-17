@@ -9,11 +9,12 @@ license = "MIT"
 python = "^3.8"
 requests = "^2.27.1"
 azure-identity = "^1.7.1"
-"azure.videoindexer" = {path = "sdk", develop = true}
+"azure.videoindexer" = {url = "https://github.com/tomconte/avam-samples-python/releases/download/untagged-a15d5c21c44871a7f397/azure.videoindexer-1.0.0.tar.gz"}
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
 autopep8 = "^1.6.0"
+PyYAML = "^6.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

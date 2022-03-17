@@ -8,20 +8,12 @@ The dependencies are managed using [Poetry](https://python-poetry.org/), you sho
 
 ## Generate the SDK
 
-First download the AVAM OpenAPI spec:
+You can generate and build the SDK using the script provided:
 
 ```sh
-curl -H 'Accept: application/vnd.oai.openapi' "https://viprod-apim.management.azure-api.net/subscriptions/000/resourceGroups/000/providers/Microsoft.ApiManagement/service/viprod-apim/apis/Operations?api-version=2019-12-01" > Operations.yaml
-```
-
-You can find this URL on the [API Portal for AVAM](https://api-portal.videoindexer.ai/api-details#api=Operations).
-
-You can then generate the SDK:
-
-```sh
-mkdir sdk
 cd sdk
-swagger-codegen generate -i ../Operations.yaml -l python -DpackageName=azure.videoindexer
+poetry install
+poetry run bash build_sdk.sh
 ```
 
 I decided to name the package `azure.videoindexer` rather than `azure.videoanalyzerformedia` for brevity purposes :-)

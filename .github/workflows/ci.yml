@@ -22,21 +22,19 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Generate SDK from Swagger
-      run: |
-        curl -H 'Accept: application/vnd.oai.openapi' "https://viprod-apim.management.azure-api.net/subscriptions/000/resourceGroups/000/providers/Microsoft.ApiManagement/service/viprod-apim/apis/Operations?api-version=2019-12-01" > Operations.yaml
-        mkdir sdk
-        docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3 generate -i /local/Operations.yaml -o /local/sdk -l python -DpackageName=azure.videoindexer
-
     - name: Install Poetry
       run: |
         python -m pip install --upgrade pip
         python -m pip install poetry
 
-    - name: Install dependencies
+    - name: Generate SDK from Swagger
+      working-directory: ./sdk
       run: |
         poetry install
-
+        poetry run bash build_sdk.sh
+        
     - name: Analysing the code with flake8
+    working-directory: ./samples
       run: |
+        poetry install
         poetry run flake8 $(git ls-files '*.py')

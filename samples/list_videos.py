@@ -22,14 +22,11 @@ avam_access_token = get_avam_access_token(
 
 api_instance = azure.videoindexer.VideosApi()
 
-list_videos_response = api_instance.list_videos(
+list_videos = api_instance.list_videos(
     location=avam_location,
     account_id=avam_account_id,
     access_token=avam_access_token,
-    page_size=1000,
-    _preload_content=False)
-
-list_videos = json.loads(list_videos_response.read())
+    page_size=1000)
 
 for i in list_videos['results']:
     print(i['name'])

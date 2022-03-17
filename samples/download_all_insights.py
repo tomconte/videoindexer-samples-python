@@ -22,14 +22,11 @@ avam_access_token = get_avam_access_token(
 
 api_instance = azure.videoindexer.VideosApi()
 
-list_videos_response = api_instance.list_videos(
+list_videos = api_instance.list_videos(
     location=avam_location,
     account_id=avam_account_id,
     access_token=avam_access_token,
-    page_size=100,
-    _preload_content=False)
-
-list_videos = json.loads(list_videos_response.read())
+    page_size=100)
 
 # For each video, download the corresponding insights JSON file
 
@@ -37,20 +34,17 @@ for video in list_videos['results']:
     video_name = video['name']
     video_id = video['id']
 
-    index_response = api_instance.get_video_index(
+    insights = api_instance.get_video_index(
         location=avam_location,
         account_id=avam_account_id,
         access_token=avam_access_token,
-        video_id=video_id,
-        _preload_content=False)
+        video_id=video_id)
+
+    # Assemble file name
+    insights_file_name = video_name + '__' + video_id + '.json'
 
     # Get the insights JSON document
     print(f"Downloading {video_name} insights ...")
-    insights = index_response.read()
 
-    # Extract the file name from the properties
-    insights_file_name = video_name + '__' + video_id + '.json'
-
-    # Save the file
-    with open(insights_file_name, 'wb') as f:
-        f.write(insights)
+    with open(insights_file_name, 'w') as f:
+        json.dump(insights, f)
