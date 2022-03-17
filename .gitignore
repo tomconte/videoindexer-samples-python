@@ -129,6 +129,4 @@ dmypy.json
 .pyre/
 
 # Project specific
-Operations.yaml
-sdk/
 .vscode/
