@@ -2,7 +2,9 @@
 
 This repository contains some examples showing how to access from Python the REST API of [Azure Video Analyzer for Media](https://docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-for-media-docs/) (née Video Indexer, a.k.a. "AVAM").
 
-The examples use an SDK generated using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen). You should first install the `swagger-codegen` tool, and then follow the next steps to generate the SDK.
+The examples use an SDK generated using a [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) Docker image. You should have Docker installed and runnning on your machine, then follow the next steps to generate the SDK.
+
+Alternatively, you can download the pre-built SDK from the Releases in the repository.
 
 The dependencies are managed using [Poetry](https://python-poetry.org/), you should also install this tool on your machine.
 
