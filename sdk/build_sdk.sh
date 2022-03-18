@@ -10,13 +10,13 @@ curl -H 'Accept: application/vnd.oai.openapi' "https://viprod-apim.management.az
 
 echo "# Fix spec..."
 
-python ./fix_swagger.py Operations.yaml > Operations_fixed.yaml
+poetry run python ./fix_swagger.py Operations.yaml > Operations_fixed.yaml
 
 echo "# Generate SDK..."
 
 mkdir generated
 
-docker run --user $(id -u):$(id -g) --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3 generate -i /local/Operations.yaml -o /local/generated -l python -DpackageName=azure.videoindexer
+docker run --user $(id -u):$(id -g) --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3 generate -i /local/Operations_fixed.yaml -o /local/generated -l python -DpackageName=azure.videoindexer
 
 echo "# Build SDK..."
 
