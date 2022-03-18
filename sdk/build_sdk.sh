@@ -23,8 +23,10 @@ echo "# Build SDK..."
 cd generated
 touch azure/__init__.py
 python setup.py sdist
+python setup.py bdist_wheel --universal
 
-mv dist/azure.videoindexer-*.tar.gz ..
+mv dist/*.tar.gz ..
+mv dist/*.whl ..
 
 echo "# Clean up..."
 
