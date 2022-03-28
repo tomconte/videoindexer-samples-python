@@ -59,5 +59,5 @@ def list_all_videos(api_instance, location, account_id, access_token, page_size=
         page_size = list_videos['nextPage']['pageSize']
         skip = list_videos['nextPage']['skip']
         done = list_videos['nextPage']['done']
- 
+
     return all_videos
