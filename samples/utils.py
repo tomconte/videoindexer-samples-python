@@ -35,3 +35,29 @@ def download_file(url, local_filename, chunk_size=1024*1024):
         with open(local_filename, 'wb') as f:
             for chunk in r.iter_content(chunk_size):
                 f.write(chunk)
+
+
+def list_all_videos(api_instance, location, account_id, access_token, page_size=100):
+    """List all videos, using the API paging mechanism.
+    The default page_size is set to 100 (the API default is 25).
+    """
+    done = False
+    skip = 0
+
+    all_videos = []
+
+    while not done:
+        list_videos = api_instance.list_videos(
+            location=location,
+            account_id=account_id,
+            access_token=access_token,
+            page_size=page_size,
+            skip=skip)
+
+        all_videos += list_videos['results']
+
+        page_size = list_videos['nextPage']['pageSize']
+        skip = list_videos['nextPage']['skip']
+        done = list_videos['nextPage']['done']
+    
+    return all_videos

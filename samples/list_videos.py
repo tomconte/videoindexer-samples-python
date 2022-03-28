@@ -1,8 +1,9 @@
+#!/usr/bin/env python
 import os
 
 import azure.videoindexer
 
-from utils import get_avam_access_token
+from utils import get_avam_access_token, list_all_videos
 
 avam_subscription = os.environ['AVAM_SUBSCRIPTION']
 avam_resource_group = os.environ['AVAM_RESOURCE_GROUP']
@@ -21,11 +22,11 @@ avam_access_token = get_avam_access_token(
 
 api_instance = azure.videoindexer.VideosApi()
 
-list_videos = api_instance.list_videos(
+list_videos = list_all_videos(
+    api_instance=api_instance,
     location=avam_location,
     account_id=avam_account_id,
-    access_token=avam_access_token,
-    page_size=1000)
+    access_token=avam_access_token)
 
-for i in list_videos['results']:
-    print(i['name'])
+for i in list_videos:
+    print(i['name'], i['state'], i['processingProgress'])
