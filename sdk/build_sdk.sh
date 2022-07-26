@@ -2,8 +2,21 @@
 
 set -e
 
-TEMP_FILES="generated Operations.yaml Operations_fixed.yaml"
+while getopts "kn" opt
+do
+    case $opt in
+        k)
+            opt_keep=true
+            ;;
+        b)
+            opt_build=true
+            ;;
+    esac
+done
 
+TEMP_FILES="Operations.yaml Operations_fixed.yaml"
+
+# Delete any existing files
 rm -rf ${TEMP_FILES} *.tar.gz *.whl
 
 echo "# Download OpenAPI spec..."
@@ -16,25 +29,26 @@ poetry run python ./fix_swagger.py Operations.yaml > Operations_fixed.yaml
 
 echo "# Generate SDK..."
 
-mkdir generated
+mkdir videoindexer
 
-docker run --user $(id -u):$(id -g) --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3 generate -i /local/Operations_fixed.yaml -o /local/generated -l python -DpackageName=azure.videoindexer
+docker run --user $(id -u):$(id -g) --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3 generate -i /local/Operations_fixed.yaml -o /local/videoindexer -l python -DpackageName=azure.videoindexer
 
-echo "# Build SDK..."
-
-cd generated
-touch azure/__init__.py
-python setup.py sdist
-python setup.py bdist_wheel --universal
-
-mv dist/*.tar.gz ..
-mv dist/*.whl ..
-
-echo "# Clean up..."
-
-cd ..
-
-if [ "$1" != "-k" ]
+if [ "$opt_build" = true ]
 then
+    echo "# Build SDK..."
+
+    cd generated
+    touch azure/__init__.py
+    python setup.py sdist
+    python setup.py bdist_wheel --universal
+
+    mv dist/*.tar.gz ..
+    mv dist/*.whl ..
+    cd ..
+fi
+
+if [ "$opt_keep" = true ]
+then
+    echo "# Clean up..."
     rm -rf ${TEMP_FILES}
 fi
