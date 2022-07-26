@@ -1,8 +1,10 @@
 #!/bin/bash
 
+set -e
+
 TEMP_FILES="generated Operations.yaml Operations_fixed.yaml"
 
-rm -rf ${TEMP_FILES} *.tar.gz
+rm -rf ${TEMP_FILES} *.tar.gz *.whl
 
 echo "# Download OpenAPI spec..."
 
@@ -31,4 +33,8 @@ mv dist/*.whl ..
 echo "# Clean up..."
 
 cd ..
-rm -rf ${TEMP_FILES}
+
+if [ "$1" != "-k" ]
+then
+    rm -rf ${TEMP_FILES}
+fi
