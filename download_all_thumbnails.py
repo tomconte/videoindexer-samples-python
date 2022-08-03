@@ -3,7 +3,7 @@ import zipfile
 
 import videoindexer
 
-from utils import get_avam_access_token, download_file
+from utils import get_avam_access_token, download_file, list_all_videos
 
 avam_subscription = os.environ['AVAM_SUBSCRIPTION']
 avam_resource_group = os.environ['AVAM_RESOURCE_GROUP']
@@ -22,17 +22,17 @@ avam_access_token = get_avam_access_token(
 
 api_instance = videoindexer.VideosApi()
 
-list_videos = api_instance.list_videos(
+list_videos = list_all_videos(
+    api_instance=api_instance,
     location=avam_location,
     account_id=avam_account_id,
-    access_token=avam_access_token,
-    page_size=100)
+    access_token=avam_access_token)
 
 # For each video, download the corresponding keyframe thumbnails
 # Each thumbnails zip file is named `{video_name}__{video_id}.zip`
 # The thumbnails are extracted in a directory named `{video_name}__{video_id}`
 
-for video in list_videos['results']:
+for video in list_videos:
     video_name = video['name']
     video_id = video['id']
 

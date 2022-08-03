@@ -3,7 +3,7 @@ import os
 
 import videoindexer
 
-from utils import get_avam_access_token
+from utils import get_avam_access_token, list_all_videos
 
 avam_subscription = os.environ['AVAM_SUBSCRIPTION']
 avam_resource_group = os.environ['AVAM_RESOURCE_GROUP']
@@ -20,21 +20,22 @@ avam_access_token = get_avam_access_token(
 
 # Retrieve a list of all videos
 
-api_instance = videoindexer.VideosApi()
+video_api_instance = videoindexer.VideosApi()
+index_api_instance = videoindexer.IndexingApi()
 
-list_videos = api_instance.list_videos(
+list_videos = list_all_videos(
+    api_instance=video_api_instance,
     location=avam_location,
     account_id=avam_account_id,
-    access_token=avam_access_token,
-    page_size=100)
+    access_token=avam_access_token)
 
 # For each video, download the corresponding insights JSON file
 
-for video in list_videos['results']:
+for video in list_videos:
     video_name = video['name']
     video_id = video['id']
 
-    insights = api_instance.get_video_index(
+    insights = index_api_instance.get_video_index(
         location=avam_location,
         account_id=avam_account_id,
         access_token=avam_access_token,
