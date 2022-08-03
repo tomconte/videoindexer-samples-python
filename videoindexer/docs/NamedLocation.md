@@ -1,0 +1,17 @@
+# NamedLocation
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**confidence** | **float** |  | [optional] 
+**description** | **str** |  | [optional] 
+**id** | **int** |  | [optional] 
+**instances** | [**list[NamedEntityElementInstance]**](NamedEntityElementInstance.md) |  | [optional] 
+**is_custom** | **bool** |  | [optional] 
+**name** | **str** |  | [optional] 
+**reference_id** | **str** |  | [optional] 
+**reference_url** | **str** |  | [optional] 
+**tags** | **list[str]** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

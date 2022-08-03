@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "avam-samples-python"
+version = "0.1.0"
+description = "Python samples for Azure Video Analyzer for Media (AVAM)"
+authors = ["Thomas Conté <tconte@microsoft.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.27.1"
+azure-identity = "^1.7.1"
+"videoindexer" = { path = "videoindexer", develop = false }
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+autopep8 = "^1.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
