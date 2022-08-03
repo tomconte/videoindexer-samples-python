@@ -35,8 +35,10 @@ echo "# Generate SDK..."
 
 mkdir videoindexer
 
-#docker run --user $(id -u):$(id -g) --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3 generate -i /local/Operations_fixed.yaml -o /local/videoindexer -l python -DpackageName=videoindexer
-docker run --user $(id -u):$(id -g) --rm -v ${PWD}:/local parsertongue/swagger-codegen-cli:3.0.32 generate -i /local/Operations_fixed.yaml -o /local/videoindexer -l python -DpackageName=videoindexer
+docker run --user $(id -u):$(id -g) --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli-v3 generate -i /local/Operations_fixed.yaml -o /local/videoindexer -l python -DpackageName=videoindexer
+
+# Nota bene: the image above does not work currently on Apple Silicon Mac machines; as a a workaround you can use the command below.
+# docker run --user $(id -u):$(id -g) --rm -v ${PWD}:/local parsertongue/swagger-codegen-cli:3.0.32 generate -i /local/Operations_fixed.yaml -o /local/videoindexer -l python -DpackageName=videoindexer
 
 if [ "$opt_build" = true ]
 then
