@@ -1,28 +1,12 @@
 # Azure Video Analyzer for Media Python samples
 
-This repository contains some examples showing how to access from Python the REST API of [Azure Video Analyzer for Media](https://docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-for-media-docs/) (née Video Indexer, a.k.a. "AVAM").
-
-The examples use an SDK generated using a [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) Docker image. You should have Docker installed and runnning on your machine, then follow the next steps to generate the SDK.
-
-Alternatively, you can download the pre-built SDK from the Releases in the repository, or just point to it in your dependencies.
+This repository contains some examples showing how to access the REST API of [Azure Video Indexer](https://docs.microsoft.com/en-us/azure/azure-video-indexer/) from Python.
 
 The dependencies are managed using [Poetry](https://python-poetry.org/), you should also install this tool on your machine.
 
-## Generate the SDK
-
-If you want to generate and build the SDK locally, use the script provided:
-
-```sh
-cd sdk
-poetry install
-poetry run bash build_sdk.sh
-```
-
-I decided to name the package `azure.videoindexer` rather than `azure.videoanalyzerformedia` for brevity purposes :-)
-
 ## Use the examples
 
-To use the samples, first install the dependencies using Poetry. You don't need to build the SDK, the samples will use the released SDK from the repository.
+To use the samples, first install the dependencies using Poetry. You don't need to build the SDK, the samples will use the SDK included in the repository.
 
 ```sh
 poetry install
@@ -37,6 +21,8 @@ export AZURE_CLIENT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 export AZURE_CLIENT_SECRET=123random456string
 export AZURE_TENANT_ID=yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy
 ```
+
+If you are logged in using the Azure CLI tool, `DefaultAzureCredential` will use your current credentials.
 
 In addition, to access the AVAM API, the following environment variables will be used:
 
@@ -65,3 +51,19 @@ poetry run python list_videos.py
 - `list_videos.py`: list the names of all videos (limited to 1000 entries).
 - `download_all_thumbnails.py`: download all keyframe thumbnails for all videos (limited to 100 entries).
 - `download_all_insights.py`: download insights JSON document for all videos (limited to 100 entries).
+
+## Generate the SDK
+
+Here are the steps you can follow if you want to re-generate the SDK for any reason.
+
+The SDK is generated using a [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) Docker image, so you should have Docker installed and runnning on your machine.
+
+You can generate the SDK in the `scripts` directory:
+
+```sh
+cd scripts
+poetry install
+poetry run bash build_sdk.sh
+```
+
+The SDK is generated in the `videoindexer` directory. If you want to use it in the samples, you will have to move it into place (one directory up).
