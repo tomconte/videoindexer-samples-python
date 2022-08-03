@@ -1,4 +1,4 @@
-# Azure Video Analyzer for Media Python samples
+# Azure Video Indexer Python samples
 
 This repository contains some examples showing how to access the REST API of [Azure Video Indexer](https://docs.microsoft.com/en-us/azure/azure-video-indexer/) from Python.
 
