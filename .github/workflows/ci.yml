@@ -28,13 +28,12 @@ jobs:
         python -m pip install poetry
 
     - name: Generate SDK from Swagger
-      working-directory: ./sdk
+      working-directory: ./scripts
       run: |
         poetry install
         poetry run bash build_sdk.sh
         
     - name: Analysing the code with flake8
-      working-directory: ./samples
       run: |
         poetry install
         poetry run flake8 $(git ls-files '*.py')
