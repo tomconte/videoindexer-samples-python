@@ -33,7 +33,7 @@ else:
 
 # Call the AVAM API
 
-api_instance = azure.videoindexer.VideosApi()
+api_instance = videoindexer.VideosApi()
 
 list_videos = list_all_videos(
     api_instance=api_instance,

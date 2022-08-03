@@ -20,7 +20,7 @@ avam_access_token = get_avam_access_token(
 
 # Retrieve a list of all videos
 
-api_instance = azure.videoindexer.VideosApi()
+api_instance = videoindexer.VideosApi()
 
 list_videos = api_instance.list_videos(
     location=avam_location,
