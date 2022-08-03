@@ -48,9 +48,12 @@ poetry run python list_videos.py
 
 ## List of examples
 
-- `list_videos.py`: list the names of all videos (limited to 1000 entries).
-- `download_all_thumbnails.py`: download all keyframe thumbnails for all videos (limited to 100 entries).
-- `download_all_insights.py`: download insights JSON document for all videos (limited to 100 entries).
+All the samples use a helper function `list_all_videos()` in `utils.py` to retrieve all the videos using the API paging mechanism.
+
+- `list_videos.py`: list the names of all videos. 
+- `download_all_thumbnails.py`: download all keyframe thumbnails for all videos.
+- `download_all_insights.py`: download insights JSON document for all videos.
+- `delete_videos.py`: delete videos.
 
 ## Generate the SDK
 
