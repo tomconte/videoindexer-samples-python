@@ -2,6 +2,10 @@
 
 set -e
 
+# Defaults
+opt_keep=false
+opt_build=false
+
 while getopts "kn" opt
 do
     case $opt in
@@ -47,7 +51,7 @@ then
     cd ..
 fi
 
-if [ "$opt_keep" = true ]
+if [ "$opt_keep" = false ]
 then
     echo "# Clean up..."
     rm -rf ${TEMP_FILES}
