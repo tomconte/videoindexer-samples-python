@@ -36,4 +36,4 @@ jobs:
     - name: Analysing the code with flake8
       run: |
         poetry install
-        poetry run flake8 $(git ls-files '*.py')
+        poetry run flake8 --exclude videoindexer,__pycache__,scripts
