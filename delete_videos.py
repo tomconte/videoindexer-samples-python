@@ -1,3 +1,5 @@
+"""Delete videos from a Video Indexer account."""
+
 import os
 import sys
 

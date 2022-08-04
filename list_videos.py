@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+"""List all videos in a Video Indexer account."""
+
 import os
 
 import videoindexer

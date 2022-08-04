@@ -1,3 +1,5 @@
+"""Download all the JSON insights from a Video Indexer account."""
+
 import json
 import os
 

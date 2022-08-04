@@ -1,3 +1,5 @@
+"""Download all the thumbnails from a Video Indexer account."""
+
 import os
 import zipfile
 

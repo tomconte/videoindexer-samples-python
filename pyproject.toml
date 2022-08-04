@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "avam-samples-python"
+name = "videoindexer-samples-python"
 version = "0.1.0"
-description = "Python samples for Azure Video Analyzer for Media (AVAM)"
+description = "Python samples for Azure Video Indexer"
 authors = ["Thomas Conté <tconte@microsoft.com>"]
 license = "MIT"
 
