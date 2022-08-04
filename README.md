@@ -2,7 +2,9 @@
 
 This repository contains some examples showing how to access the REST API of [Azure Video Indexer](https://docs.microsoft.com/en-us/azure/azure-video-indexer/) from Python.
 
-The dependencies are managed using [Poetry](https://python-poetry.org/), you should also install this tool on your machine.
+The samples use a SDK generated from the Video Indexer Swagger API definition. You can browse the [`videoindexer`](videoindexer) directory to read the full generated API documentation.
+
+The dependencies are managed using [Poetry](https://python-poetry.org/), you should have that tool installed on your machine. If you prefer to use `requirements.txt`, you can generate one using Poetry: `poetry export -o requirements.txt`.
 
 ## Use the examples
 
